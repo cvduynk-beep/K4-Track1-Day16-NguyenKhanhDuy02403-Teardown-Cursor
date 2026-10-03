@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Slides Teardown Cursor - AI Product Manager Day 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+  
+  @page {
+    size: 1600px 900px;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #f1f5f9;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .slide {
+    width: 1600px;
+    height: 900px;
+    page-break-after: always;
+    padding: 60px 80px;
+    position: relative;
+    background: radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                #0b0f19;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+  }
+
+  .header .tag {
+    background: linear-gradient(135deg, #0284c7, #6366f1);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header .slide-number {
+    font-size: 16px;
+    color: #94a3b8;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Cover Slide */
+  .cover {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.18) 0%, transparent 65%), #07090e;
+  }
+
+  .cover .badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+  }
+
+  .cover h1 {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+
+  .cover h1 span.highlight {
+    color: #38bdf8;
+  }
+
+  .cover p.subtitle {
+    font-size: 24px;
+    color: #94a3b8;
+    max-width: 900px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+  }
+
+  .cover .meta {
+    display: flex;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 36px;
+    border-radius: 16px;
+  }
+
+  .cover .meta-item {
+    text-align: left;
+  }
+
+  .cover .meta-item span {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    text-transform: uppercase;
+  }
+
+  .cover .meta-item strong {
+    font-size: 16px;
+    color: #e2e8f0;
+  }
+
+  /* Timeline Grid */
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    flex: 1;
+  }
+
+  .timeline-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .timeline-card .time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 6px;
+  }
+
+  .timeline-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .timeline-card .context {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .timeline-card .principle {
+    background: rgba(14, 165, 233, 0.1);
+    border-left: 3px solid #0284c7;
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+    font-size: 11px;
+    color: #bae6fd;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  /* Comparison Table */
+  .comparison-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    flex: 1;
+  }
+
+  .user-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .user-card.early {
+    border-top: 4px solid #38bdf8;
+  }
+
+  .user-card.current {
+    border-top: 4px solid #818cf8;
+  }
+
+  .user-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .user-card .item {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .user-card .item strong {
+    color: #cbd5e1;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .user-card .item p {
+    color: #94a3b8;
+  }
+
+  /* 4 Forces Visual */
+  .forces-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .force-box {
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .force-box.push {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+  }
+
+  .force-box.pull {
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+  }
+
+  .force-box.habit {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+  }
+
+  .force-box.anxiety {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+  }
+
+  .force-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .force-box.push h4 { color: #f87171; }
+  .force-box.pull h4 { color: #4ade80; }
+  .force-box.habit h4 { color: #fbbf24; }
+  .force-box.anxiety h4 { color: #c084fc; }
+
+  .force-box p {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
+  .force-box .resolution {
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  /* Predictions */
+  .pred-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    flex: 1;
+  }
+
+  .pred-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .pred-card .type {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .pred-card.p1 .type { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+  .pred-card.p2 .type { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+  .pred-card.p3 .type { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+
+  .pred-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .pred-card .reason {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    background: rgba(0,0,0,0.25);
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 3px solid #64748b;
+  }
+
+  /* Q&A Defense */
+  .qa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .qa-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .qa-card h4 {
+    font-size: 16px;
+    color: #f59e0b;
+    margin-bottom: 8px;
+  }
+
+  .qa-card p {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.45;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: COVER -->
+<div class="slide cover">
+  <div class="badge">BÀI LAB DAY 16 • TRACK 1 • AI PRODUCT MANAGER</div>
+  <h1>TEARDOWN <span class="highlight">CURSOR (ANYSPHERE)</span></h1>
+  <p class="subtitle">Hành Trình Thoát Khỏi "Wrapper Mỏng" Để Kiến Tạo Moat Công Nghệ Dẫn Đầu Thị Trường AI-Native IDE</p>
+  <div class="meta">
+    <div class="meta-item">
+      <span>Đơn vị thực hiện</span>
+      <strong>Nhóm 3B</strong>
+    </div>
+    <div class="meta-item">
+      <span>Thành viên Lead</span>
+      <strong>Nguyễn Khánh Duy</strong>
+    </div>
+    <div class="meta-item">
+      <span>Sản phẩm Teardown</span>
+      <strong>Cursor IDE (Anysphere)</strong>
+    </div>
+    <div class="meta-item">
+      <span>Mục tiêu nộp bài</span>
+      <strong>memo.md + slides.pdf</strong>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: TIMELINE & NGUYÊN LÝ -->
+<div class="slide">
+  <div class="header">
+    <h2><span>§1</span> 7 Cột Mốc Quyết Định & Nguyên Lý Cốt Lõi</h2>
+    <span class="slide-number">02 / 06</span>
+  </div>
+  <div class="timeline-grid">
+    <div class="timeline-card">
+      <div>
+        <div class="time">03/2023 • v0.1 Launch</div>
+        <h4>Cmd+K Inline Edit & Fork VS Code</h4>
+        <div class="context">ChatGPT bùng nổ, Copilot còn sơ khai. Dev phải copy-paste giữa browser và IDE.</div>
+      </div>
+      <div class="principle">🔑 Triệt tiêu Switching Cost bằng Fork VS Code & Workflow Integration.</div>
+    </div>
+    <div class="timeline-card">
+      <div>
+        <div class="time">08/2023 • Context Engine</div>
+        <h4>@Codebase Semantic Indexing</h4>
+        <div class="context">Context window LLM hạn hẹp (8k/32k). Model không hiểu toàn bộ kiến trúc repository.</div>
+      </div>
+      <div class="principle">🔑 Moat từ Data Retrieval & AST Parser (Vượt qua Wrapper mỏng).</div>
+    </div>
+    <div class="timeline-card">
+      <div>
+        <div class="time">01/2024 • Cursor Tab</div>
+        <h4>Copilot++ Next-Action Prediction</h4>
+        <div class="context">GitHub Copilot trễ 300-500ms, chỉ đoán next-token và không đoán được bước sửa tiếp theo.</div>
+      </div>
+      <div class="principle">🔑 Quy tắc x10 về Tốc độ (<100ms) bằng Speculative Decoding tự huấn luyện.</div>
+    </div>
+    <div class="timeline-card">
+      <div>
+        <div class="time">08/2024 • Composer Rollout</div>
+        <h4>Multi-File Agent Editing</h4>
+        <div class="context">Claude 3.5 Sonnet ra mắt; nhu cầu dev chuyển sang sinh code đồng bộ 5–10 file.</div>
+      </div>
+      <div class="principle">🔑 Chuyển dịch Paradigm từ Copilot sang Agentic Workflow (Vertical AI).</div>
+    </div>
+    <div class="timeline-card">
+      <div>
+        <div class="time">10/2024 • B2B Unlocked</div>
+        <h4>SOC 2 Type II & Privacy Zero-Retention</h4>
+        <div class="context">Kỹ sư mang Cursor vào công ty (bottom-up) nhưng bị Security/CTO chặn vì sợ rò rỉ mã nguồn.</div>
+      </div>
+      <div class="principle">🔑 Hóa giải lực cản Anxiety để mở khóa phân khúc Enterprise.</div>
+    </div>
+    <div class="timeline-card">
+      <div>
+        <div class="time">03/2025 • Agent Execution</div>
+        <h4>Terminal Agent & Sandbox Execution</h4>
+        <div class="context">Làn sóng Autonomous AI Engineer (Devin) gây sốt nhưng tách rời khỏi local IDE của dev.</div>
+      </div>
+      <div class="principle">🔑 Vòng lặp học khép kín (Action ➔ Error ➔ Self-correction).</div>
+    </div>
+    <div class="timeline-card" style="grid-column: span 2;">
+      <div>
+        <div class="time">10/2025 • Cursor 2.0</div>
+        <h4>Composer 1.0 Custom In-House Agent Model</h4>
+        <div class="context">OpenAI/Anthropic tăng giá và siết quota; các IDE đối thủ cạnh tranh quyết liệt.</div>
+      </div>
+      <div class="principle">🔑 Tự chủ Core Moat: Thoát ly hoàn toàn phụ thuộc vào API lab ngoài bằng mô hình chuyên biệt tự host.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: USER & JTBD -->
+<div class="slide">
+  <div class="header">
+    <h2><span>§2</span> Phân Tích Chân Dung Tệp User & Sự Dịch Chuyển</h2>
+    <span class="slide-number">03 / 06</span>
+  </div>
+  <div class="comparison-box">
+    <div class="user-card early">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3>Early Adopters (2023)</h3>
+        <span class="tag" style="background:#0284c7;">Khởi nguồn</span>
+      </div>
+      <div class="item">
+        <strong>Chân dung cụ thể:</strong>
+        <p>Kỹ sư Frontend/Fullstack tại Startup nhỏ, Indie Hacker, Solo Dev, người nhạy bén theo dõi AI Twitter/X, dùng thạo VS Code.</p>
+      </div>
+      <div class="item">
+        <strong>JTBD Chính (Việc cần thuê làm):</strong>
+        <p><em>"Sinh nhanh mã boilerplate, hàm CRUD lặp lại ngay tại editor để launch MVP nhanh gấp 10 lần mà không phải copy-paste qua web."</em></p>
+      </div>
+      <div class="item">
+        <strong>Cách cũ họ từng giải quyết:</strong>
+        <p>Mở 2 màn hình: VS Code và tab trình duyệt ChatGPT; copy-paste code và lỗi qua lại liên tục.</p>
+      </div>
+    </div>
+
+    <div class="user-card current">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3>Tệp Hiện Tại (2024 - 2026)</h3>
+        <span class="tag" style="background:#6366f1;">Quy mô lớn</span>
+      </div>
+      <div class="item">
+        <strong>Chân dung cụ thể:</strong>
+        <p>Kỹ sư Mid/Senior, Tech Lead tại các công ty vừa và tập đoàn công nghệ (Scale-up, Enterprise) sở hữu monorepo hàng triệu dòng.</p>
+      </div>
+      <div class="item">
+        <strong>JTBD Chính (Việc cần thuê làm):</strong>
+        <p><em>"Định vị đúng file phụ thuộc trong repo đồ sộ, tự động refactor đồng bộ nhiều file và bắt lỗi logic để bàn giao tính năng chuẩn xác không sinh regression."</em></p>
+      </div>
+      <div class="item">
+        <strong>Cách cũ họ từng giải quyết:</strong>
+        <p>Đọc tài liệu nội bộ lỗi thời, grep thủ công toàn repo, tự sửa từng file và debug tay mất hàng tuần.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 20px; font-size: 14px; color: #94a3b8;">
+    <strong style="color: #38bdf8;">Đòn bẩy dịch chuyển tệp:</strong> Mốc <span style="color:#fff;">@Codebase Indexing (08/2023)</span> + <span style="color:#fff;">Composer Multi-file (08/2024)</span> + <span style="color:#fff;">Chứng nhận SOC 2 (10/2024)</span> đã đưa Cursor từ công cụ viết code lặt vặt của cá nhân thành vũ khí năng suất bắt buộc cho cả tổ chức kỹ thuật.
+  </div>
+</div>
+
+<!-- SLIDE 4: 4 FORCES OF SWITCHING COST -->
+<div class="slide">
+  <div class="header">
+    <h2><span>§2.1</span> Mô Hình 4 Forces Của Switching Cost</h2>
+    <span class="slide-number">04 / 06</span>
+  </div>
+  <div class="forces-grid">
+    <div class="force-box push">
+      <h4>🚨 1. PUSH (Lực Đẩy Từ Cái Cũ)</h4>
+      <p>Sự ức chế tột cùng khi dùng GitHub Copilot: phản hồi chậm, chỉ đoán được từng dòng ngắn, hay gợi ý ảo giác vì không nắm được ngữ cảnh toàn bộ repository; cảm giác mệt mỏi khi phải liên tục chuyển tab giữa VS Code và ChatGPT trên web.</p>
+    </div>
+
+    <div class="force-box habit">
+      <h4>🧱 3. HABIT / INERTIA (Thói Quen Níu Giữ)</h4>
+      <p>Lập trình viên rất ngại đổi IDE vì đã tích lũy hàng chục extension, tinh chỉnh phím tắt (keybindings) riêng và cấu hình theme suốt nhiều năm trên VS Code.</p>
+      <div class="resolution">💡 Nước cờ thiên tài: Fork 100% VS Code! Đồng bộ toàn bộ extension & phím tắt chỉ với 1 cú click chuột, đưa lực cản về 0.</div>
+    </div>
+
+    <div class="force-box pull">
+      <h4>✨ 2. PULL (Lực Hút Của Cái Mới)</h4>
+      <p>Composer sửa đổi đồng bộ 10 file cùng lúc; Cursor Tab đoán trước con trỏ nhảy đến đúng vị trí logic tiếp theo (<100ms) tạo cảm giác AI "đọc được suy nghĩ"; tính năng `@Codebase` trả lời chính xác mọi câu hỏi về kiến trúc dự án.</p>
+    </div>
+
+    <div class="force-box anxiety">
+      <h4>🛡️ 4. ANXIETY (Nỗi Bất An Khi Đổi Mới)</h4>
+      <p>Nỗi sợ dữ liệu mã nguồn độc quyền của doanh nghiệp bị gửi lên cloud làm dữ liệu huấn luyện cho bên thứ ba; nỗi sợ bị phụ thuộc công nghệ và chi phí $20/tháng.</p>
+      <div class="resolution">💡 Khắc chế hoàn toàn: Ra mắt Privacy Mode (Zero Data Retention), đạt chuẩn quốc tế SOC 2 Type II và hỗ trợ nhập API Key riêng (BYOK).</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: 3 DỰ ĐOÁN HƯỚNG ĐI -->
+<div class="slide">
+  <div class="header">
+    <h2><span>§3</span> 3 Dự Đoán Hướng Đi (6–12 Tháng Tới)</h2>
+    <span class="slide-number">05 / 06</span>
+  </div>
+  <div class="pred-grid">
+    <div class="pred-card p1">
+      <div>
+        <span class="type">MỞ RỘNG TÍNH NĂNG / AGENT</span>
+        <h4>Autonomous Code Review & CI/CD Native Agent</h4>
+        <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 12px;">Ra mắt Cursor Cloud Agent tích hợp trực tiếp vào GitHub PR: tự chạy test suite, rà soát lỗ hổng và chủ động gửi branch fix trước khi Tech Lead phê duyệt.</p>
+      </div>
+      <div class="reason">
+        <strong>Lập luận móc xích §1 & §2:</strong> Xuất phát từ mốc Terminal Execution (03/2025) và nhu cầu giải quyết điểm nghẽn review code của tệp Tech Lead/Enterprise.
+      </div>
+    </div>
+
+    <div class="pred-card p2">
+      <div>
+        <span class="type">ĐỐI PHÓ BIG TECH / MOAT</span>
+        <h4>Mô Hình Local SLM Chạy Offline On-Device</h4>
+        <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 12px;">Phát hành các mô hình ngôn ngữ nhỏ (SLM) tự chưng cất, chạy trực tiếp trên chip Apple Silicon và GPU local để gợi ý code và linting với độ trễ <30ms hoàn toàn bảo mật.</p>
+      </div>
+      <div class="reason">
+        <strong>Lập luận móc xích §1 & §2:</strong> Xuất phát từ mốc tự chủ model Cursor 2.0 (10/2025) và yêu cầu bảo mật môi trường cô lập (Air-gapped) của các ngân hàng.
+      </div>
+    </div>
+
+    <div class="pred-card p3">
+      <div>
+        <span class="type">MÔ HÌNH KIẾM TIỀN / B2B</span>
+        <h4>Enterprise Architecture Knowledge Hub</h4>
+        <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 12px;">Gói thuê bao Enterprise tính theo tổ chức: biến dữ liệu Semantic Indexing thành sơ đồ tri thức kiến trúc sống, rút ngắn thời gian onboarding nhân sự mới từ tuần xuống giờ.</p>
+      </div>
+      <div class="reason">
+        <strong>Lập luận móc xích §1 & §2:</strong> Khai thác Moat @Codebase (08/2023) và đánh trúng bài toán cắt giảm chi phí đào tạo nhân sự của các tổ chức công nghệ lớn.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: DEFENSE & Q&A -->
+<div class="slide">
+  <div class="header">
+    <h2><span>§4</span> Bộ Câu Hỏi Phản Biện & Chuẩn Bị Đối Đáp (Q&A)</h2>
+    <span class="slide-number">06 / 06</span>
+  </div>
+  <div class="qa-grid">
+    <div class="qa-card">
+      <h4>❓ Q1: Cursor có phải chỉ là "Wrapper mỏng" của OpenAI/Anthropic không?</h4>
+      <p><strong>Trả lời:</strong> Không. Bắt đầu như một wrapper nhưng Cursor đã xây moat cực dày ở 3 tầng: (1) <em>Context Engine</em> với AST và code embeddings độc quyền; (2) <em>Custom Model</em> với Speculative Decoding cho Cursor Tab (<100ms); (3) <em>Agent Orchestration</em> trong Composer tự quản lý diff và rollback an toàn.</p>
+    </div>
+    <div class="qa-card">
+      <h4>❓ Q2: Nếu Microsoft tích hợp Copilot tương đương vào VS Code gốc thì Cursor có chết không?</h4>
+      <p><strong>Trả lời:</strong> Rất khó. Cursor có lợi thế của công ty tập trung 100% vào AI-first IDE với chu kỳ release hàng tuần. Microsoft bị ràng buộc bởi tập người dùng khổng lồ cần sự tương thích ngược và bộ máy ra quyết định cồng kềnh. Hơn nữa, Cursor hiện đã sở hữu mô hình in-house riêng và tệp khách hàng trung thành cao.</p>
+    </div>
+    <div class="qa-card">
+      <h4>❓ Q3: Trong 4 Forces, nếu lực PULL của đối thủ mạnh hơn thì Cursor giữ user bằng gì?</h4>
+      <p><strong>Trả lời:</strong> Cursor giữ chân người dùng bằng <em>Dữ liệu chỉ mục ngữ nghĩa (@Codebase Indexing)</em> và <em>Vòng lặp thói quen cơ bắp (Muscle Memory)</em> với phím Tab autocomplete. Một khi dev đã quen với tốc độ phản hồi <100ms của Cursor Tab, mọi độ trễ trên 200ms của công cụ khác đều tạo cảm giác "chậm chạp không chịu nổi".</p>
+    </div>
+    <div class="qa-card">
+      <h4>❓ Q4: Trong 3 dự đoán tương lai, dự đoán nào có nguy cơ bị gãy nhất và tại sao?</h4>
+      <p><strong>Trả lời:</strong> Dự đoán số 1 (CI/CD Native Agent) có nguy cơ gãy cao nhất nếu GitHub khóa chặt API hoặc ưu tiên độc quyền cho GitHub Copilot Workspace trên nền tảng GitHub Actions, buộc Cursor phải tự dựng hạ tầng agent cloud tốn kém hơn.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

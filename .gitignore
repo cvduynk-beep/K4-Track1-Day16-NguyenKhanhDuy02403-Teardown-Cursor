@@ -1,0 +1,12 @@
+# Video files (too large for git)
+screen_record.mov
+screen_record.mp4
+frames/
+
+# Scratch & Extraction logs
+extracted_full_guide.txt
+video_ocr_transcript.txt
+screenshot_*.png
+
+# OS metadata
+.DS_Store
