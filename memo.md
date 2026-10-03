@@ -1,6 +1,6 @@
 # Memo Teardown - CURSOR (Anysphere)
 
-**Nhóm:** Nhóm Phân Tích Sản Phẩm AI (Nhóm 3B) • **Thành viên:** Nguyễn Khánh Duy (Lead & Tech Analysis), Thành viên 2 (User Research & JTBD), Thành viên 3 (Market Context & Moat Analysis)  
+**Hình thức:** Bài làm cá nhân • **Học viên:** Nguyễn Khánh Duy (Mã HV: 02403)  
 **Vì sao chọn sản phẩm này:** Cursor là biểu tượng điển hình nhất của làn sóng AI-native tool: xuất phát điểm từ một bản fork VS Code tưởng chừng như "wrapper mỏng", nhưng đã nhanh chóng bứt phá thành công cụ lập trình AI dẫn đầu thị trường bằng cách giải quyết triệt để bài toán switching cost và xây dựng moat công nghệ vững chắc từ context engine và custom models.
 
 ---
@@ -18,11 +18,11 @@
 | **10/2025** | **Ra mắt Cursor 2.0 & Kiến trúc Model In-House (Composer 1.0)**<br>[Link Cursor 2.0 & Composer Model](https://www.cursor.com/changelog) | Các nhà cung cấp mô hình nền tảng (OpenAI, Anthropic) liên tục biến động giá và áp quota; các đối thủ cạnh tranh mới như Windsurf, Copilot Workspace nổi lên quyết liệt. | **Hóa giải đe dọa từ Model Lab & Tự chủ Core Moat**:<br>Không còn phụ thuộc đơn thuần vào API của bên thứ ba; tự tối ưu và host mô hình agent riêng được huấn luyện chuyên biệt trên tập dữ liệu thao tác lập trình thực tế của hàng triệu lập trình viên. |
 
 ### Vì sao chọn những mốc này:
-Nhóm tập trung tuyển chọn đúng **7 cột mốc bước ngoặt** đánh dấu sự biến chuyển bản chất của Cursor: từ việc giải quyết rào cản switching cost ban đầu (Fork VS Code), tới việc xây dựng moat về context (`@Codebase`), moat về tốc độ (Cursor Tab), chuyển đổi paradigm sang Agent đa file (Composer), mở khóa thị trường B2B (SOC 2), và tiến tới tự chủ mô hình lõi (Cursor 2.0). 
+Tôi tập trung tuyển chọn đúng **7 cột mốc bước ngoặt** đánh dấu sự biến chuyển bản chất của Cursor: từ việc giải quyết rào cản switching cost ban đầu (Fork VS Code), tới việc xây dựng moat về context (`@Codebase`), moat về tốc độ (Cursor Tab), chuyển đổi paradigm sang Agent đa file (Composer), mở khóa thị trường B2B (SOC 2), và tiến tới tự chủ mô hình lõi (Cursor 2.0). 
 
-**Các mốc nhóm đã chủ động loại ra:**
-* Bản cập nhật giao diện Dark Mode / UI Theme (11/2023) và cập nhật thêm thanh kéo Chat UI (04/2024): Nhóm loại bỏ vì đây thuần túy là cải tiến giao diện (cosmetic updates), không đại diện cho một quyết định sản phẩm chiến lược hay thay đổi nguyên lý vận hành nào.
-* Việc bổ sung hỗ trợ model Gemini 1.5 Pro hay Claude 3 Opus qua API key người dùng: Nhóm loại bỏ vì đây chỉ là việc tích hợp thêm endpoint của bên thứ ba (wrapper behavior thông thường), không tạo ra giá trị khác biệt cốt lõi cho sản phẩm.
+**Các mốc đã chủ động loại ra:**
+* Bản cập nhật giao diện Dark Mode / UI Theme (11/2023) và cập nhật thêm thanh kéo Chat UI (04/2024): Tôi loại bỏ vì đây thuần túy là cải tiến giao diện (cosmetic updates), không đại diện cho một quyết định sản phẩm chiến lược hay thay đổi nguyên lý vận hành nào.
+* Việc bổ sung hỗ trợ model Gemini 1.5 Pro hay Claude 3 Opus qua API key người dùng: Tôi loại bỏ vì đây chỉ là việc tích hợp thêm endpoint của bên thứ ba (wrapper behavior thông thường), không tạo ra giá trị khác biệt cốt lõi cho sản phẩm.
 
 ---
 
@@ -88,10 +88,10 @@ Sự dịch chuyển từ tệp lập trình viên cá nhân sang tệp kỹ sư
 
 ## §4. AI Log
 
-| Việc cụ thể | AI làm hay nhóm làm? | Nhóm kiểm chứng / phán đoán lại thế nào? |
+| Việc cụ thể | AI làm hay học viên làm? | Học viên kiểm chứng / phán đoán lại thế nào? |
 |---|---|---|
-| **Thu thập danh sách changelog và các cột mốc thô của Cursor** | AI hỗ trợ (Deep Search & tổng hợp từ tài liệu công khai) | Thành viên nhóm truy cập trực tiếp vào trang `cursor.com/changelog`, `cursor.com/blog` và kho lưu trữ Product Hunt để đối chiếu ngày phát hành chính xác; loại bỏ 4 mốc cập nhật vụn vặt (vá lỗi font chữ, tinh chỉnh màu sắc UI). |
-| **Phân loại và truy ngược nguyên lý cốt lõi (§1)** | Nhóm thực hiện & thảo luận chung | Tranh luận gay gắt trong nhóm để loại bỏ nhãn nguyên lý chung chung như *"để tăng trưởng người dùng"*; thống nhất gán chính xác các khái niệm đã học trong bài: *Triệt tiêu Switching Cost*, *Quy tắc x10 về độ trễ*, *Moat từ Context Retrieval*, *Vertical AI*. |
-| **Phân tích chân dung Early Adopters vs. Tệp hiện tại (§2)** | Nhóm thực hiện | Đọc các bài đánh giá thực tế của cộng đồng trên diễn đàn Reddit (r/programming, r/Cursor) và Hacker News từ tháng 04/2023 so với các bài viết năm 2025; cụ thể hóa chân dung đến mức mô tả được thói quen và vai trò công việc cụ thể của kỹ sư, tránh viết chung chung là "người dùng". |
-| **Thiết lập ma trận 4 Forces của Switching Cost (§2)** | Nhóm cùng làm | Đối chiếu trải nghiệm thực tế của các thành viên trong nhóm khi chuyển từ VS Code sang Cursor; nhận diện rõ chiến lược "Fork VS Code" là đòn bẩy then chốt triệt tiêu lực cản Thói quen (Inertia). |
-| **Đề xuất và xây dựng lập luận cho 3 dự đoán tương lai (§3)** | Nhóm tự phản biện và hoàn thiện | Mỗi thành viên đề xuất 1 dự đoán nháp; nhóm tổ chức "chấm chéo" và chất vấn: *"Giả định nào nếu sai sẽ làm dự đoán này gãy?"*. Loại bỏ 1 dự đoán viển vông (*"Cursor sẽ tự viết 100% ứng dụng mà không cần dev"*) và chốt lại 3 dự đoán có dẫn chứng chặt chẽ từ §1 và §2. |
+| **Thu thập danh sách changelog và các cột mốc thô của Cursor** | AI hỗ trợ (Deep Search & tổng hợp từ tài liệu công khai) | Học viên trực tiếp truy cập vào trang `cursor.com/changelog`, `cursor.com/blog` và kho lưu trữ Product Hunt để đối chiếu ngày phát hành chính xác; chủ động loại bỏ 4 mốc cập nhật vụn vặt (vá lỗi font chữ, tinh chỉnh màu sắc UI). |
+| **Phân loại và truy ngược nguyên lý cốt lõi (§1)** | Học viên thực hiện & đánh giá | Tự phân tích và loại bỏ nhãn nguyên lý chung chung như *"để tăng trưởng người dùng"*; thống nhất gán chính xác các khái niệm đã học trong bài: *Triệt tiêu Switching Cost*, *Quy tắc x10 về độ trễ*, *Moat từ Context Retrieval*, *Vertical AI*. |
+| **Phân tích chân dung Early Adopters vs. Tệp hiện tại (§2)** | Học viên thực hiện | Trực tiếp đào sâu các bài đánh giá của cộng đồng trên diễn đàn Reddit (r/programming, r/Cursor) và Hacker News từ tháng 04/2023 so với các bài viết năm 2025; cụ thể hóa chân dung đến mức mô tả được thói quen và vai trò công việc cụ thể của kỹ sư, tránh viết chung chung là "người dùng". |
+| **Thiết lập ma trận 4 Forces của Switching Cost (§2)** | Học viên thực hiện | Đối chiếu trải nghiệm thực tế của bản thân khi chuyển từ VS Code sang Cursor; nhận diện rõ chiến lược "Fork VS Code" là đòn bẩy then chốt triệt tiêu lực cản Thói quen (Inertia). |
+| **Đề xuất và xây dựng lập luận cho 3 dự đoán tương lai (§3)** | Học viên tự phản biện và hoàn thiện | Tự xây dựng các kịch bản dự đoán và chất vấn: *"Giả định nào nếu sai sẽ làm dự đoán này gãy?"*. Loại bỏ 1 dự đoán viển vông (*"Cursor sẽ tự viết 100% ứng dụng mà không cần dev"*) và chốt lại 3 dự đoán có dẫn chứng chặt chẽ từ §1 và §2. |

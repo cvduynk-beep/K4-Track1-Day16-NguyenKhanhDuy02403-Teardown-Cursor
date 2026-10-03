@@ -1,8 +1,8 @@
 # Bài Lab Day 16: Teardown Sản Phẩm AI (Cursor IDE - Anysphere)
 
 > **Khóa học:** AI Product Manager (Track 1 - Day 16)  
-> **Nhóm thực hiện:** Nhóm 3B  
-> **Thành viên:** Nguyễn Khánh Duy (Lead & Tech Analysis) và các thành viên nhóm 3B  
+> **Hình thức:** Bài làm cá nhân  
+> **Học viên thực hiện:** Nguyễn Khánh Duy (Mã HV: 02403)  
 > **Hạn chót nộp bài:** 03/10/2026 11:59 (GMT+7)
 
 ---
@@ -17,7 +17,7 @@ Bài lab thực hiện **Teardown chuyên sâu sản phẩm Cursor IDE (Anyspher
    * **§1. Timeline 7 Cột Mốc Quyết Định**: Từ launch v0.1 (03/2023) đến Cursor 2.0 In-house Model (10/2025), revert về các nguyên lý cốt lõi (*x10 Rule, Moat từ Context Retrieval, Fork VS Code để giảm switching cost, Vertical AI, Autonomous Feedback Loop*).
    * **§2. Phân Tích Tệp User & JTBD**: So sánh Early Adopters vs. Tệp Hiện Tại; phân tích ma trận 4 Forces (*Push, Pull, Habit, Anxiety*).
    * **§3. Ba Dự Đoán Hướng Đi (6–12 tháng tới)**: Autonomous CI/CD Agent, Local SLM On-Device, và Enterprise Knowledge Hub.
-   * **§4. Bảng Khai Báo AI Log**: Minh bạch ranh giới giữa phần việc AI hỗ trợ và phần nhóm kiểm chứng, phản biện.
+   * **§4. Bảng Khai Báo AI Log**: Minh bạch ranh giới giữa phần việc AI hỗ trợ và phần học viên kiểm chứng, phản biện.
 2. **[slides.pdf](./slides.pdf)**: Slide thuyết trình chuẩn tỉ lệ 16:9 (6 trang), thiết kế hiện đại, sẵn sàng cho buổi thuyết trình và phản biện trước lớp.
 3. **[slides.html](./slides.html)**: Mã nguồn giao diện slide (HTML/CSS) dùng để xuất bản và tùy biến slide.
 
